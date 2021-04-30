@@ -1,0 +1,145 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: "Oxygen", sans-serif;
+  padding-bottom: 50px;
+  background-color: #000;
+  color: #dddddd;
+}
+body a {
+  color: inherit;
+  text-decoration: none;
+}
+body div.container header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: calc(50px + 51px + 20px);
+}
+body div.container header h1 {
+  display: none;
+}
+body div.container header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+body div.container header nav ul li {
+  width: calc(25% - 20px);
+  font-size: 1.4vw;
+  padding: 10px;
+  transition: background 300ms ease-in-out, color 300ms ease-in-out;
+  background-color: #333333;
+  color: #dddddd;
+}
+body div.container header nav ul li:hover {
+  background: #666666;
+  color: white;
+}
+body div.container header nav ul li a {
+  display: block;
+}
+body div.container section {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+body div.container section#video {
+  padding: 50px 10px;
+}
+body div.container section#video figure video {
+  max-width: 100%;
+  max-height: 100%;
+}
+body div.container section#articles {
+  padding: 50px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+body div.container section#articles article figure {
+  box-shadow: 2px 2px 20px #ec99cd;
+}
+body div.container section#articles article figure img {
+  width: 100%;
+  height: auto;
+}
+body div.container section#articles article figure figcaption {
+  padding: 10px;
+  text-align: left;
+}
+body div.container section#articles article figure figcaption p {
+  color: #777;
+}
+body div.container section#form {
+  padding: 10px;
+  width: 100vw;
+  margin: 0 auto;
+  border-top: 1px solid black;
+}
+body div.container section#form form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+}
+body div.container section#form form div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: 30px 0;
+  padding: 0;
+}
+body div.container section#form form div label {
+  text-align: left;
+  width: calc(20% - 40px);
+  padding-left: 20px;
+  min-width: 150px;
+}
+body div.container section#form form div input {
+  width: 79%;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 25px;
+  font-size: 1.3em;
+}
+body div.container section#form form div input:focus {
+  outline: none;
+  background-color: #c7dcec;
+}
+body div.container section#form form div input::placeholder {
+  padding-left: 10px;
+}
+body div.container section#form form div button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: #2980b9;
+  width: 30%;
+  height: 50px;
+  color: #ecf0f1;
+  font-size: 1.3em;
+}
+
+/*# sourceMappingURL=index.css.map */
