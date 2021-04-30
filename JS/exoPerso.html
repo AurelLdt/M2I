@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h1>Addition</h1>
+
+    <form action="" name="addition">
+        
+        <input type="text" name="n1" id="">
+
+        <button type="button" name="+">+</button>
+
+        <input type="text" name="n2" id="">
+
+        <button type="button" name="button" onclick="calcul1()">Résultat</button>
+
+        <input type="text" name="resultat1" id="">
+    </form>
+
+
+    <h1>Soustraction</h1>
+
+    <form action="" name="soustraction">
+
+        <input type="text" name="n3" id="">
+
+        <button type="button" name="+">-</button>
+
+        <input type="text" name="n4" id="">
+
+        <button type="button" name="button" onclick="calcul2()">Résultat</button>
+
+        <input type="text" name="resultat2" id="">
+    </form>
+
+
+    <h1>Multiplication</h1>
+
+    <form action="" name="multiplication">
+        
+        <input type="text" name="n5" id="">
+
+        <button type="button" name="+">*</button>
+
+        <input type="text" name="n6" id="">
+
+        <button type="button" name="button" onclick="calcul3()">Résultat</button>
+
+        <input type="text" name="resultat3" id="">
+    </form>
+
+
+    <h1>Division</h1>
+
+    <form action="" name="division">
+        
+        <input type="text" name="n7" id="">
+
+        <button type="button" name="+">/</button>
+
+        <input type="text" name="n8" id="">
+
+        <button type="button" name="button" onclick="calcul4()">Résultat</button>
+
+        <input type="text" name="resultat4" id="">
+    </form>
+
+
+    <h1>Reste</h1>
+
+    <form action="" name="reste">
+        
+        <input type="text" name="n9" id="">
+
+        <button type="button" name="+">%</button>
+
+        <input type="text" name="n10" id="">
+
+        <button type="button" name="button" onclick="calcul5()">Résultat</button>
+
+        <input type="text" name="resultat5" id="">
+    </form>
+
+    <script>
+        
+        function calcul1() {
+
+            document.addition.resultat1.value = parseInt(document.addition.n1.value) + parseInt(document.addition.n2.value);
+
+        }
+
+        
+        
+        function calcul2() {
+
+            document.soustraction.resultat2.value = parseInt(document.soustraction.n3.value) - parseInt(document.soustraction.n4.value);
+        
+        }
+
+
+
+        function calcul3() {
+
+            document.multiplication.resultat3.value = parseInt(document.multiplication.n5.value) * parseInt(document.multiplication.n6.value);
+
+        }
+
+
+
+        function calcul4() {
+
+            document.division.resultat4.value = parseInt(document.division.n7.value) / parseInt(document.division.n8.value);
+
+        }
+
+
+
+        function calcul5() {
+
+            document.reste.resultat5.value = parseInt(document.reste.n9.value) % parseInt(document.reste.n10.value);
+
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        // var marc = {
+        //     nom: "Marc",
+        //     age: 15,
+        //     moyenne: 15
+        // }
+
+        // console.log(marc.age >= 18 ? "Tu es majeur" : "Tu es mineur")
+        
+      
+
+/*
+ET: &&
+OU: ||
+
+    SI age >= 18 ET age <= 25 ALORS
+        bravo tu as le droit à une réduc tarif jeune
+-----------------------------------
+         if (marc.age >= 18 && marc.age <= 25) {
+            console.log('bravo tu as le droit au tarif jeune')
+        } else {
+            console.log("vous n'avez pas accès au tarif jeune")
+        }
+----------------------------------
+         if (marc.age < 18 || marc.age > 25) {
+            console.log("Vous n'avez pas accès au tarif jeune")
+        } else {
+            console.log ("Bravo ! tu as le droit au tarif jeune")
+        }
+
+---------------------------------
+         if (marc.age >= 18 && marc.age <= 25 || marc.age > 70) {
+           console.log("Bravo ! Vous avez accès au tarif réduit")
+       } else {
+           console.log("Vous n'avez pas accès au tarif réduit")
+       }
+       
+*/
+    </script>
+</body>
+</html>

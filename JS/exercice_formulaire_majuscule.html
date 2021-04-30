@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <form action="" name="formulaire">
+    <div>
+      <label for="">Entrez votre nom</label>
+      <input id="a" type="text" name="a">
+    </div>
+    <div>
+      <label for="">Entrez votre adresse email</label>
+      <input id="b" type="email" name="email">
+    </div>
+    <div>
+      <label for="">Connaissez-vous mediaforma</label>
+      Oui <input id="c" type="radio" name="media">
+      Non <input id="d" type="radio" name="media">
+    </div>
+    <div>
+      <button>Envoyer</button>
+      <button>Annuler</button>
+      <button type="button"  onclick="upperCase();">Majuscules</button>
+    </div>
+  </form>
+  <script charset="utf-8">
+    function upperCase(){
+       document.formulaire.email.value  = document.formulaire.email.value.toUpperCase();
+    }
+  </script>
+</body>

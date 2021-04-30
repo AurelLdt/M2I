@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exo 14/12/2020</title>
+
+    <style>
+        input {
+            width: 120px;
+            height: 50px;
+            margin: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <form action="" name="form">
+
+        <div>
+            <button type="button" onclick="inline()">inline</button>
+            <button type="button" onclick="block()">block</button>
+            <button type="button" onclick="br15()">border radius de 15px</button>
+            <button type="button" onclick="br30()">border radius de 30px</button>
+            <button type="button" onclick="fb()">fond bleu</button>
+            <button type="button" onclick="fr()">fond rose</button>
+        </div>
+
+        <div>
+            <input type="text" name="cd1">
+            <input type="text" name="cd2">
+            <input type="text" name="cd3">
+            <input type="text" name="cd4">
+        </div>
+
+    </form>
+
+    <script>
+        function inline() {
+
+            document.form.cd1.style.display = "inline"
+            document.form.cd2.style.display = "inline"
+            document.form.cd3.style.display = "inline"
+            document.form.cd4.style.display = "inline"
+
+        }
+
+        function block() {
+
+            document.form.cd1.style.display = "block"
+            document.form.cd2.style.display = "block"
+            document.form.cd3.style.display = "block"
+            document.form.cd4.style.display = "block"
+
+        }
+
+        function br15() {
+
+            document.form.cd1.style.borderRadius = "15px"
+            document.form.cd2.style.borderRadius = "15px"
+            document.form.cd3.style.borderRadius = "15px"
+            document.form.cd4.style.borderRadius = "15px"
+
+        }
+
+        function br30() {
+
+            document.form.cd1.style.borderRadius = "30px"
+            document.form.cd2.style.borderRadius = "30px"
+            document.form.cd3.style.borderRadius = "30px"
+            document.form.cd4.style.borderRadius = "30px"
+
+        }
+
+        function fb() {
+
+            document.form.cd1.style.background = "blue"
+            document.form.cd2.style.background = "blue"
+            document.form.cd3.style.background = "blue"
+            document.form.cd4.style.background = "blue"
+
+        }
+
+        function fr() {
+
+            document.form.cd1.style.background = "pink"
+            document.form.cd2.style.background = "pink"
+            document.form.cd3.style.background = "pink"
+            document.form.cd4.style.background = "pink"
+
+        }
+    </script>
+
+
+</body>
+
+
+</html>
+
+
+<!-- <form action="">
+    <div>
+        <button type="button" onclick="display(this.form, 'inline');">display inline</button>
+        <button type="button" onclick="display(this.form, 'block');">display block</button>
+        <button type="button" onclick="radius(this.form, '15');">border radius 15px</button>
+        <button type="button" onclick="radius(this.form, '30');">border radius 30px</button>
+        <button type="button" onclick="bgc(this.form, 'blue');">bgc bleu</button>
+        <button type="button" onclick="bgc(this.form, 'pink');">bgc rose</button>
+    </div>
+     <div>
+         <input type="text">
+         <input type="text">
+         <input type="text">
+         <input type="text">
+     </div>
+ </form>
+ <script>
+     function display(form, display) {
+         for (const element of form.elements) {
+             if (element.tagName === 'INPUT') {
+                 element.style.display = display;
+             }
+         }
+     }
+     function radius(form, pixel) {
+         for (const element of form.elements) {
+             if (element.tagName === 'INPUT') {
+                 element.style.borderRadius = pixel + 'px';
+             }
+         }
+     }
+     function bgc(form, color){
+         for (const element of form.elements) {
+             if (element.tagName === 'INPUT') {
+                 element.style.backgroundColor = color;
+             }
+         }
+     } -->
+<!-- 
+     // function displayInline(form){
+     //     for (const element of form.elements) {
+     //         if (element.tagName === 'INPUT'){
+     //             element.style.display = "inline";
+     //         }
+     //     }
+     // }
+     // function displayBlock(form){
+     //     for (const element of form.elements) {
+     //         if (element.tagName === 'INPUT'){
+     //             element.style.display = "block";
+     //         }
+     //     }
+     // }
+     // function radius15(form){
+     //     for (const element of form.elements) {
+     //         if (element.tagName === 'INPUT'){
+     //             element.style.borderRadius = "15px";
+     //         }
+     //     }
+     // }
+     // function radius30(form){
+     //     for (const element of form.elements) {
+     //         if (element.tagName === 'INPUT'){
+     //             element.style.borderRadius = "30px";
+     //         }
+     //     }
+     // }
+     // function bgcBlue(form){
+     //     for (const element of form.elements) {
+     //         if (element.tagName === 'INPUT'){
+     //             element.style.backgroundColor = "blue";
+     //         }
+     //     }
+     // }
+     // function bgcPink(form){
+     //     for (const element of form.elements) {
+     //         if (element.tagName === 'INPUT'){
+     //             element.style.backgroundColor = "pink";
+     //         }
+     //     }
+     // } -->

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js1</title>
+
+    <style>
+        a {
+            text-decoration: none;font-size: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <a href="./js2.html" 
+    onmouseover="mouseHover(this)" 
+    onmouseleave="mouseOut (this)">
+    Aller vers la page 2 !</a>
+
+
+    <script>
+
+        // function mouseHover(baliseA) {
+        //     console.log(baliseA);
+        //     baliseA.style.color = "red";
+
+        // }
+
+        // function mouseOut(baliseA) {
+        //     console.log(baliseA);
+        //     baliseA.style.color = "black";
+        // }
+
+        function mouseOut (baliseA) {
+            console.log(baliseA.hash);
+            console.log(baliseA.host);
+            console.log(baliseA.hostname);
+            console.log(baliseA.href);
+            console.log(baliseA.pathname);
+            console.log(baliseA.port);
+            console.log(baliseA.protocol);
+            console.log(baliseA.search);
+            baliseA.style.color = "red";
+        }
+
+    </script>
+</body>
+
+</html>

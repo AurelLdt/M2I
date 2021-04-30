@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Test du return</h1>
+<hr>
+<p>Entrez une valeur hexa à convertir en décimal</p>
+<form action="" name="formulaire">
+    <input type="text" name="hexa">
+    <button type="button" onclick="calcul(this.form);">-></button>
+    <input type="text" name="res">
+    <input type="text" name="res">
+</form>
+<form action="" name="formulaire">
+    <input type="text" name="hexa">
+    <button type="button" onclick="calcul(this.form);">-></button>
+    <input type="text" name="res">
+    <input type="text" name="res">
+</form>
+<div>
+    <a href="#">google</a>
+    <a href="#">google</a>
+</div>
+<script>
+    function hexToDec(nombre) {
+        return parseInt(nombre, 16);
+    }
+    function calcul(f) {
+        f.res.value = hexToDec(f.hexa.value);
+    }
+    if (document.forms.length > 0) {
+        if (document.forms[0] === document.formulaire) {
+            console.log('ils sont identiques');
+            console.log(document.forms[0]);
+        }
+    }
+    // console.log(document.forms[1]);
+    for (let x of document.forms) {
+        for (let y of x.elements) {
+            y.style.margin = "5px";
+            y.style.border = "2px solid red"
+        }
+    }
+</script>
+</body>
+</html>

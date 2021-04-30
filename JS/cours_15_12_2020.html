@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #ccc;
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 2em;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .container section#selection {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .container section#articles div {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 400vw;
+            transition: 500ms ease-in-out;
+        }
+
+        .container section#articles div article {
+            width: 80vw;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container section#articles article:nth-child(1) {
+            background-color: #fa8231;
+        }
+
+        .container section#articles article:nth-child(2) {
+            background-color: #20bf6b;
+        }
+
+        .container section#articles article:nth-child(3) {
+            background-color: #4b7bec;
+        }
+
+        .container section#articles article:nth-child(4) {
+            background-color: #8854d0;
+        }
+
+        .d-flex {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .space-between {
+            justify-content: space-between;
+        }
+
+        .btn {
+            margin: 20px;
+            padding: 10px;
+            min-width: 150px;
+            font-style: 1.3rem;
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section id="selection">
+            <div>
+                <label>1</label>
+                <input type="radio" id="radio_1" name="selection" checked value="1">
+            </div>
+            <div>
+                <label>2</label>
+                <input type="radio" id="radio_2" name="selection" value="2">
+            </div>
+            <div>
+                <label>3</label>
+                <input type="radio" id="radio_3" name="selection" value="3">
+            </div>
+            <div>
+                <label>4</label>
+                <input type="radio" id="radio_4" name="selection" value="4">
+            </div>
+        </section>
+        <section id="articles">
+            <div id="article">
+                <article id="1">1</article>
+                <article id="2">2</article>
+                <article id="3">3</article>
+                <article id="4">4</article>
+            </div>
+        </section>
+        <section class="d-flex space-between">
+            <div>
+                <button class="btn" id="previous" disabled>précédent</button>
+            </div>
+            <div>
+                <button class="btn" id="next">suivant</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+    function btnClick() {
+        let previous = document.getElementById('previous');
+        let next = document.getElementById('next');
+        let inputs = document.getElementsByTagName('input');
+        for (const el of inputs) {
+            el.addEventListener('click', function () {
+                if (this.value === '1') {
+                    previous.disabled = true;
+                    next.disabled = false;
+                } else if (this.value === '4') {
+                    next.disabled = true;
+                    previous.disabled = false;
+                } else {
+                    previous.disabled = false;
+                    next.disabled = false;
+                }
+            })
+        }
+        previous.addEventListener('click', function () {
+            let val = -1;
+            let index = 0;
+            for (const input of inputs) {
+                if (input.checked) {
+                    val = input.value;
+                    break;
+                }
+                index++;
+            }
+            if (index > 0) {
+                inputs[index - 1].checked = true;
+            }
+            if (val >= 3) {
+                next.disabled = false;
+            }
+            if (val <= 2){
+                previous.disabled = true;
+            }
+            document.getElementById('article').style.transform = `translateX(-${val - 2}00vw)`;
+        });
+        next.addEventListener('click', function () {
+            let val = -1;
+            let index = 0;
+            for (const input of inputs) {
+                if (input.checked) {
+                    val = input.value;
+                    break;
+                }
+                index++;
+            }
+            if (index < 3) {
+                inputs[index + 1].checked = true;
+            }
+            if (val >= 3) {
+                next.disabled = true;
+            }
+            if (val <= 2){
+                previous.disabled = false;
+            }
+            document.getElementById('article').style.transform = `translateX(-${val}00vw)`;
+        });
+    }
+    btnClick();
+        // function slideOneByOne() {
+        //     let input4 = document.getElementById('radio_4');
+        //     let input4Fn = function(){
+        //       document.getElementById('article').style.transform = "translateX(-300vw)";
+        //     };
+        //     input4.addEventListener('click', input4Fn);
+        //     let input3 = document.getElementById('radio_3');
+        //     let input3Fn = function(){
+        //       document.getElementById('article').style.transform = "translateX(-200vw)";
+        //     };
+        //     input3.addEventListener('click', input3Fn);
+        //     let input2 = document.getElementById('radio_2');
+        //     let input2Fn = function(){
+        //       document.getElementById('article').style.transform = "translateX(-100vw)";
+        //     };
+        //     input2.addEventListener('click', input2Fn);
+        //     let input1 = document.getElementById('radio_1');
+        //     let input1Fn = function(){
+        //       document.getElementById('article').style.transform = "translateX(0vw)";
+        //     };
+        //     input1.addEventListener('click', input1Fn);
+        // }
+        // slideOneByOne();
+
+
+
+
+        // function slideOne() {
+        //    clickInput('radio_1');
+        //    clickInput('radio_2');
+        //    clickInput('radio_3');
+        //    clickInput('radio_4');
+        // }
+        // function clickInput(whatInput){
+        //     let inp = document.getElementById(whatInput);
+        //     let inpFn = function(){
+        //         document.getElementById('article').style.transform = `translateX(-${inp.value -1}00vw)`;
+        //     };
+        //     inp.addEventListener('click', inpFn);
+        // }
+        // slideOne();
+
+
+
+
+        function slide() {
+            const selection = document.getElementsByTagName('input');
+            for (const el of selection) {
+                el.addEventListener('click', function () {
+                    let doc = document.getElementById(`article`);
+                    doc.style.transform = `translateX(-${this.value - 1}00vw)`;
+                })
+            }
+        }
+        slide();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="" name="formulaire">
+        <label for="">X</label>
+        <input type="text" name="x" id="x">
+        <label for="op">Op</label>
+        <input type="text" name="op" id="op" value="+" size="1">
+        <label for="">Y</label>
+        <input type="text" name="y" id="y">
+
+        <button type="button" onclick="calcul();">=</button>
+
+        <label for="">Res</label>
+        <input type="text" name="res" id="res">
+    </form>
+
+    <script>
+        function calcul() {
+            let doc = document.formulaire;
+            let x = parseFloat(doc.x.value);
+            let y = parseFloat(doc.y.value);
+            let op = doc.op.value;
+
+            let res = 0;
+
+            // if (op === "+") {
+            //     res = x + y;
+            // }else if (op === "-")
+            // res = x - y;
+
+            switch (op) {
+                case "+":
+                    res = x + y;
+                    break;
+
+                case "-":
+                    res = x - y;
+                    break;
+
+                case "/":
+                    res = x / y;
+                    break;
+
+                case "%":
+                    res = x % y;
+                    break;
+                default:
+                    console.log('opérateur incompris');
+            }
+            
+            doc.res.value = res;
+
+        }
+
+
+
+
+        // function calcul(f) {
+        //     f.res.value = parseFloat(f.x.value) + parseFloat(f.y.value);
+        // }
+    </script>
+
+</body>
+
+</html>

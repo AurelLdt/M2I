@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium temporibus rem maxime debitis. Deleniti
+        veniam laborum et sequi est quod, dolorem provident dolorum impedit vel eaque, omnis, veritatis possimus
+        ullam!Tempore quae consequuntur consectetur iure reprehenderit perferendis reiciendis ipsa dolor, a
+        necessitatibus soluta sint corrupti accusamus minus quas dolore commodi veniam quos ut ullam. Nulla, blanditiis.
+        Voluptas natus aut quis.
+    </p> -->
+
+    <form action="#" method="get">
+        <input type="text" name="nombre_html">
+        <input type="button" onclick="carre(this.form)" value="Résultat">
+    </form>
+
+    <script>
+        // document.write('Ce texte est écrit par une instruction javascript !');
+        //        alert('Je suis une alerte');
+        // console.log('je suis dans mon console log');
+        function carre(f) {
+            f.nombre_html.value = f.nombre_html.value * f.nombre_html.value;
+        }
+    </script>
+
+</body>
+
+</html>

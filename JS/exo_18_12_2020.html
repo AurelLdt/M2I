@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Stockage local HTML5</title>
+    <style>
+        div {
+            border-width: 1px;
+            border-style: dotted;
+        }
+    </style>
+<body onload="Affiche()">
+<h1>Stockage local HTML5</h1>
+<form name="editor">
+    <div id="donnees">
+        <h2>Entrez la donnée à stocker</h2>
+        <p><label>Nom <input name="name"></label></p>
+        <p><label>Donnée <textarea name="data" cols="41" rows="10"></textarea></label></p>
+        <p>
+            <input type="button" value="Lit" onclick="Lit();">
+            <input type="button" value="Enregistre" onclick="Enregistre();">
+            <input type="button" value="Efface" onclick="Efface();">
+            <input type="button" value="Efface tout" onclick="EffaceTout();">
+        </p></div>
+    <br><br>
+    <div id="valeurs">
+        <h2>Données stockées</h2>
+        <table id="NomValeur" border="1"></table>
+    </div>
+</form>
+<script>
+    localStorage.setItem('firstname', 'samuel');
+    localStorage.setItem('lastname', 'michaux');
+    function  Lit() {
+        document.editor.data.value =  localStorage.getItem(document.editor.name.value);
+    }
+    function  Enregistre() {
+        let form = document.editor;
+        localStorage.setItem(form.name.value, form.data.value);
+        remiseAZero(form);
+        Affiche();
+    }
+    function  Efface() {
+        let form = document.editor;
+        localStorage.removeItem(form.name.value);
+        remiseAZero(form);
+        Affiche();
+    }
+    
+    function  EffaceTout() {
+        let form = document.editor;
+        localStorage.clear();
+        remiseAZero(form);
+        Affiche();
+    }
+    function remiseAZero(form){
+        form.name.value = '';
+        form.data.value = '';
+    }
+    function  Affiche() {
+        let table = document.getElementById('NomValeur');
+        let str = '';
+        if (localStorage.length > 0){
+            str += '<tr><th>Nom</th><th>Valeur</th></tr>'
+        }
+        for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i);
+            let val = localStorage.getItem(key);
+            str += `<tr><td>${key}</td><td>${val}</td></tr>`
+        }
+        table.innerHTML = str;
+    }
+</script>
+</body>
+</html>

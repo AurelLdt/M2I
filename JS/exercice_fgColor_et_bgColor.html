@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body text="#0000ff">
+<center>
+    <h1>fgColor et bgColor</h1>
+</center>
+<hr>
+<form action="">
+    <div>
+        <input type="text" name="textColor" id="text-color">
+        <button type="button" onclick="changeTextColor(this.form);">Lit la couleur du texte</button>
+    </div>
+    <div>
+        <input type="text" name="bgc" id="bgc">
+        <button type="button" onclick="changeBgColor(this.form);">Modifie la couleur du fond</button>
+    </div>
+</form>
+<script>
+    function changeTextColor(f) {
+        f.textColor.value = document.fgColor;
+    }
+    function changeBgColor(f) {
+        document.bgColor = f.bgc.value;
+    }
+</script>
+</body>
+</html>

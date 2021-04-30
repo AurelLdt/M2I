@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exo</title>
+</head>
+<body>
+<div class="container">
+    <form action="">
+        <label for="mr">Monsieur</label>
+<!--        <input type="radio" name="m_mme" id="mr" value="mr" onclick="mSelect();">-->
+<!--        <input type="radio" name="m_mme" id="mr" value="mr" onclick="check(false);">-->
+        <input type="radio" name="m_mme" id="mr" value="mr" onclick="check(this);">
+        <label for="mme">Madame</label>
+<!--        <input type="radio" name="m_mme" id="mme" value="mme" checked onclick="mmeSelect();">-->
+<!--        <input type="radio" name="m_mme" id="mme" value="mme" checked onclick="check(true);">-->
+        <input type="radio" name="m_mme" id="mme" value="mme" checked onclick="check(this);">
+        <br><br>
+        <div id="nom_jeune_fille">
+            <label for="njf">Nom de jeune fille</label>
+            <div>
+                <input type="text" name="njf" id="njf">
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    function check(self){
+        if (self.value === 'mr'){
+            document.getElementById('nom_jeune_fille').style.display = 'none';
+        }else{
+            document.getElementById('nom_jeune_fille').style.display = 'block';
+        }
+    }
+    // function check(b) {
+    //     if (b) {
+    //         document.getElementById('nom_jeune_fille').style.display = 'block';
+    //     } else {
+    //         document.getElementById('nom_jeune_fille').style.display = 'none';
+    //     }
+    // }
+
+    // function mSelect(){
+    //     document.getElementById('nom_jeune_fille').style.display = 'none';
+    // }
+    //
+    // function mmeSelect(){
+    //     document.getElementById('nom_jeune_fille').style.display = 'block';
+    // }
+</script>
+</body>
+</html>

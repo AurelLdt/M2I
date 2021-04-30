@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo slide95</title>
+</head>
+<body>
+    <form action="" name="formulaire">
+        <input type="checkbox" name="test"  onclick="clique(this.form) "> Cliquez-içi
+        <div>
+            <input type="text" name="res">
+        </div>
+    </form>
+    <script>
+        /* function clique(x){
+            
+            if(x.test.checked === false){
+                document.form.test.checked;
+                console.log(`document.forms.test.checked vaut ${x.test.checked}`);
+            }else{
+                console.log(`document.forms.test.checked vaut ${x.test.checked}`);
+            }
+        } */
+        //CORRECTION
+        /* function clique(){
+            
+            if(document.formulaire.test.checked === false){
+                document.formulaire.res.value = 'je suis ' + document.formulaire.test.checked
+            }else{
+                document.formulaire.res.value = 'je suis ' + document.formulaire.test.checked
+            }
+        } */
+        // CORRECTION PLUS COMPACTÉ
+        
+        function clique(){
+            document.formulaire.res.value = 'je suis '+ document.formulaire.test.checked
+        }
+    </script>
+</body>
+</html>
