@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars AJAX</title>
+</head>
+<body>
+    <ul id="cars"></ul>
+    <div id="car"></div>
+    <form action="add_ajax.php" method="post" id="add-car">
+        <label for="brand">Marque</label>
+        <input type="text" name="brand" id="brand">
+        <label for="model">Modèle</label>
+        <input type="text" name="model" id="model">
+        <label for="price">Prix</label>
+        <input type="text" name="price" id="price">
+        <button>Ajouter</button>
+    </form>
+    <ul id="errors"></ul>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        let byId = id => document.getElementById(id);
+        let byTag = tag => document.getElementsByTagName(tag);
+
+        axios.get('./cars.php')
+            .then(response => {
+                let cars = response.data;
+
+                // On ajoute les li dans le DOM
+                cars.map(car => {
+                    byId('cars').innerHTML += `<li data-car="${car.id}">${car.brand} ${car.model} ${car.price} &euro;</li>`;
+                });
+
+                var lis = byTag('li');
+                for (li of lis) {
+                    li.addEventListener('click', e => {
+                        let id = e.currentTarget.dataset.car;
+
+                        axios.get(`./cars.php?id=${id}`).then(response => {
+                            let car = response.data;
+
+                            byId('car').innerHTML = `
+                                <h1>${car.brand} ${car.model} ${car.price} &euro;</h1>
+                                <img src="./images/${car.id}.jpeg" width="250" />
+                            `;
+                        });
+                    });
+                }
+            }); // Fin de axios
+
+        byId('add-car').addEventListener('submit', e => {
+            e.preventDefault();
+
+            axios.post('./add_ajax.php', new FormData(e.currentTarget))
+                .then(response => {
+                    let car = response.data;
+
+                    byId('cars').innerHTML += `<li data-car="${car.id}">${car.brand} ${car.model} ${car.price} &euro;</li>`;
+
+                    // On doit réajouter le click sur les li car on "perd" l'événement à
+                    // cause du innerHTML au dessus
+                    var lis = byTag('li');
+                    for (li of lis) {
+                        li.addEventListener('click', e => {
+                            let id = e.currentTarget.dataset.car;
+
+                            axios.get(`./cars.php?id=${id}`).then(response => {
+                                let car = response.data;
+
+                                byId('car').innerHTML = `
+                                    <h1>${car.brand} ${car.model} ${car.price} &euro;</h1>
+                                    <img src="./images/${car.id}.jpeg" width="250" />
+                                `;
+                            });
+                        });
+                    }
+                })
+                .catch(error => {
+                    let errors = error.response.data;
+
+                    // On vide le ul
+                    byId('errors').innerHTML = '';
+
+                    // On convertit un objet en tableau
+                    for (let key in errors) {
+                        byId('errors').innerHTML += `<li>${key}: ${errors[key]}</li>`;
+                    }
+                });
+        });
+    </script>
+</body>
+</html>

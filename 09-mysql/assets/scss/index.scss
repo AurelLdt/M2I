@@ -1,0 +1,63 @@
+$bgColor: #f4f4f4;
+
+body.front {
+    background-color: $bgColor;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+
+    header {
+        border-bottom: 2px solid #e8e8e8;
+    }
+
+    .navbar-nav {
+        margin-left: auto;
+    
+        .nav-item {
+            border-bottom: 1px solid transparent;
+
+            &:hover, &.active {
+                border-color: #000;
+            }
+        }
+    }
+
+    .card-img-top {
+        height: 450px;
+        object-fit: cover;
+    }
+
+    .carousel-item {
+        img {
+            width: 33.33%;
+            height: 300px;
+            object-fit: cover;
+        }
+    }
+
+    footer {
+        background-color: rgba(63, 60, 60);
+        color: #fff;
+        padding: 30px 0;
+
+        h2 {
+            font-size: 22px;
+        }
+    }
+}
+
+body.admin {
+    nav.sticky-top {
+        top: 56px;
+        z-index: 1019;
+        
+        @media (min-width: 992px) {
+            min-height: calc(100vh - 56px);
+        }
+
+        .nav-link {
+            color: #fff;
+        }
+    }
+}

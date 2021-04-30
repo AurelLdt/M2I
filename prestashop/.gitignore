@@ -1,0 +1,19 @@
+# J'ignore tout
+/*
+# J'annule l'ignorance du .gitignore
+!.gitignore
+!modules/
+!override/
+!themes/
+
+modules/*
+!modules/fiorella
+
+themes/*
+!themes/classic-child
+themes/classic-child/assets/cache/*
+!themes/fiorella
+themes/fiorella/_dev/node_modules
+themes/fiorella/assets/cache/*
+themes/fiorella/assets/css/*
+themes/fiorella/assets/js/*

@@ -1,0 +1,111 @@
+// Grâce au Scss, on peut customiser Bootstrap facilement
+$primary: #38b2ac;
+// Permet d'importer Bootstrap dans notre code
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+body {
+    background-color: #edf2f7;
+    font-family: 'Nunito', sans-serif;
+}
+
+.post-thumbnail {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.site-description {
+    display: block;
+    font-size: 10px;
+}
+
+.banner {
+    position: relative;
+    height: 300px;
+
+    &:before {
+        content: '';
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    h1 {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-bottom: 0;
+        width: 100%;
+        color: #fff;
+    }
+
+    .post-thumbnail {
+        height: 100%;
+    }
+}
+
+.wpforms-container {
+    max-width: 75%;
+    margin: auto;
+}
+
+.wpforms-field-medium {
+    max-width: 100% !important;
+}
+
+.projects {
+    .card {
+        height: 100%;
+    }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+}
+
+.properties {
+    .card-img-top {
+        height: 275px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .card {
+        border: 0;
+        border-radius: 10px;
+        margin: -25px 15px 0;
+    }
+
+    .card-title {
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+
+    .star svg {
+        color: #e2e8f0;
+        fill: currentColor;
+        width: 16px;
+        height: 16px;
+    }
+
+    .star.green svg {
+        color: $primary;
+    }
+
+    .badge.bg-success {
+        background-color: $primary !important;
+        border-radius: 50px;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+
+    .features {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX avec Axios</title>
+</head>
+<body>
+    <button data-category="1">Films de gangsters</button>
+    <button data-category="2">Action</button>
+    <button data-category="3">Horreur</button>
+
+    <ul id="movies"></ul>
+    <pre id="debug" style="background-color: lightcoral;"></pre>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        let buttons = document.getElementsByTagName('button');
+
+        for (button of buttons) {
+            button.addEventListener('click', e => {
+                // On va chercher l'attribut data-category du button cliqué
+                let category = e.currentTarget.dataset.category;
+
+                axios.get(`./movies.php?category=${category}`)
+                    .then(response => {
+                        let movies = response.data;
+                        // On vide le ul avant de le remplir
+                        document.getElementById('movies').innerHTML = '';
+
+                        // On va parcourir chaque film pour les afficher sur la page
+                        movies.map(movie => {
+                            document.getElementById('movies').innerHTML += `<li>
+                                ${movie.title}
+                            </li>`;
+                        });
+                    })
+            });
+        }
+
+        // Je récupére la liste des films au chargement
+        axios.get('./movies.php')
+            .then(response => {
+                let movies = response.data;
+
+                // On va parcourir chaque film pour les afficher sur la page
+                movies.map(movie => {
+                    document.getElementById('movies').innerHTML += `<li>
+                        ${movie.title}
+                    </li>`;
+                });
+            })
+            .catch(error => {
+                // Optionnel pour voir quelques erreurs PHP s'il y en a (MySQL)
+                document.getElementById('debug').innerHTML = error.response.data;
+            });
+    </script>
+</body>
+</html>

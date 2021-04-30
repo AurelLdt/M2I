@@ -1,0 +1,15 @@
+.header-nav {
+    background-color: #e20613;
+}
+
+.header-nav a {
+    color: #fff !important;
+}
+
+.dropdown-menu a {
+    color: #232323 !important;
+}
+
+.dropdown .expand-more, .currency-selector span {
+    color: #fff !important;
+}

@@ -1,0 +1,35 @@
+$bgColor: #f4f4f4;
+
+body {
+    background-color: $bgColor;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+
+    header {
+        border-bottom: 2px solid #e8e8e8;
+    }
+
+    .navbar-nav {
+        margin-left: auto;
+    
+        .nav-item {
+            border-bottom: 1px solid transparent;
+
+            &:hover, &.active {
+                border-color: #000;
+            }
+        }
+    }
+
+    footer {
+        background-color: rgba(63, 60, 60);
+        color: #fff;
+        padding: 30px 0;
+
+        h2 {
+            font-size: 22px;
+        }
+    }
+}

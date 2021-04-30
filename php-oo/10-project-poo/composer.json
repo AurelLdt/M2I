@@ -1,0 +1,20 @@
+{
+    "_comment": "MON COMMENTAIRE",
+    "name": "matthieu/poo",
+    "description": "POO et composer",
+    "authors": [
+        {
+            "name": "Matthieu Mota",
+            "email": "matthieumota@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^5.2",
+        "swiftmailer/swiftmailer": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    }
+}

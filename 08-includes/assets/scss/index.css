@@ -1,0 +1,29 @@
+body {
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+body header {
+  border-bottom: 2px solid #e8e8e8;
+}
+body .navbar-nav {
+  margin-left: auto;
+}
+body .navbar-nav .nav-item {
+  border-bottom: 1px solid transparent;
+}
+body .navbar-nav .nav-item:hover, body .navbar-nav .nav-item.active {
+  border-color: #000;
+}
+body footer {
+  background-color: #3f3c3c;
+  color: #fff;
+  padding: 30px 0;
+}
+body footer h2 {
+  font-size: 22px;
+}
+
+/*# sourceMappingURL=index.css.map */

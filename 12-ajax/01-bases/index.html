@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+</head>
+<body>
+    <h1></h1>
+    <!--
+        Ajouter un bouton "Changer la phrase"
+        Au clic, exécuter à nouveau la requête AJAX
+    -->
+    <button id="change-sentence">Changer la phrase</button>
+
+    <script>
+        // On va pouvoir faire de l'AJAX en JavaScript.
+        // On a 2 possibilités :
+        // - fetch (Moderne)
+        // - XMLHttpRequest (Un peu verbeux...)
+
+        function refreshSentence() {
+            fetch('./worker.php').then(response => response.text()).then(data => {
+                console.log(data); // data contient "Salut AJAX"
+                document.querySelector('h1').innerHTML = data;
+            });
+        }
+
+        refreshSentence();
+
+        /*document.querySelector('#change-sentence').addEventListener('click', () => {
+            refreshSentence();
+            // Faire un autre code...
+        });*/
+        document.querySelector('#change-sentence').addEventListener('click', refreshSentence);
+    </script>
+</body>
+</html>

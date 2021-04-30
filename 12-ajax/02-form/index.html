@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax et formulaires</title>
+
+    <style>
+        body {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h2>Formulaire en GET</h2>
+    <form action="get.php" id="get">
+        <label for="firstname">Prénom</label>
+        <input type="text" name="firstname" id="firstname">
+
+        <button>Envoyer</button>
+    </form>
+
+    <h2>Formulaire en POST</h2>
+    <form method="post" action="post.php" id="post">
+        <label for="message">Message</label>
+        <textarea name="message" id="message"></textarea>
+
+        <button id="post-button">Envoyer</button>
+        <span hidden id="post-loading">
+            <img src="./ball-triangle.svg" alt="Chargement...">
+        </span>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.querySelector('#get').addEventListener('submit', (event) => {
+            event.preventDefault(); // J'annule la soumission du formulaire
+
+            // On va récupèrer tous les champs du formulaire pour les passer à la requête
+            // event.currentTarget renvoie le formulaire (this)
+            let formData = new FormData(event.currentTarget); // Toutes les données du form
+            let params = new URLSearchParams(formData); // Permet de générer une URL avec les données
+            // console.log(params.toString());
+
+            // Méthode un par un
+            let params2 = '';
+            params2 += '&firstname='+document.getElementById('firstname').value;
+            // params2 += '&lastname='+document.getElementById('lastname').value;
+
+            fetch('./get.php?'+params)
+                .then(response => response.text())
+                .then(data => console.log(data));
+        });
+
+        document.querySelector('#post').addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            // Afficher le loader et cacher le button
+            document.querySelector('#post-loading').hidden = false;
+            document.querySelector('#post-button').hidden = true;
+
+            fetch('./post.php', {
+                method: 'POST',
+                // On passe le formulaire dans le corps de la requête
+                body: new FormData(event.currentTarget)
+            })
+              .then(response => response.json())
+              .then(data => {
+                  let result = document.querySelector('#result');
+                  if (data.errors) {
+                      result.innerHTML = data.errors.message;
+                  } else {
+                      result.innerHTML = data.message;
+                  }
+                  // Après la requête AJAX, on cache le loader et on affiche le bouton
+                  document.querySelector('#post-loading').hidden = true;
+                  document.querySelector('#post-button').hidden = false;
+              });
+        });
+    </script>
+</body>
+</html>
