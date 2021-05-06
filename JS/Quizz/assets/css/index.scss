@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+
+        h1 {
+            font-family: Russo One, Arial;
+            font-weight: lighter;
+            letter-spacing: center;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 40px;
+        }
+
+        .container-global {
+            width: 70%;
+            max-width: 500px;
+            margin: 0 auto;
+            height: auto;
+       
+
+            .form-quizz {
+
+                .question-block {
+                    padding: 15px 25px 25px;
+                    margin: 10px;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 10px;
+
+                    h4 {
+                        padding: 10px 0;
+                    }
+
+                    input[type='radio'] {
+                        transform: scale(1.8);
+                        margin: 10px;
+                    }
+
+                    label {
+                        font-size: 20px;
+                    }
+
+                }
+                button{
+                    border: none;
+                    outline: none;
+                    border: 1px solid #111;
+                    border-radius: 5px;
+                    display: block;
+                    margin: 20px auto;
+                    padding: 20px 20px;
+                    cursor: pointer;
+                    font-size: 20px;
+                    transition: background-color 0.2 ease-in-out ;
+                    &:hover{
+                        background-color: lightcoral;
+                    }
+
+                }
+                .echec {
+                    animation: echec 0.3s ease-in-out;
+                }
+                @keyframes echec {
+                    0%{
+                        transform: translateX(0px);
+                    }
+                    33%{
+                        transform: translateX(5px);
+                    }
+                    66%{
+                        transform: translateX(-5px);
+                    }
+                    100%{
+                        transform: translateX(0px);
+                    }
+                }
+            }
+            .resultats {
+                padding: 25px;
+                margin: 10px 10px;
+                border-radius: 7px;
+                box-shadow: 0 2px 10px;
+                h2{
+                    text-align: center;
+                }
+                .aide{
+                    text-align: center;
+                    font-size: 20px;
+                    margin-top: 10px;
+                
+                }
+                .note{
+                    text-align: center;
+                    font-size: 25px;
+                    margin-top: 10px;
+                }
+
+                
+
+            }
+        }
+    }
+
+}
